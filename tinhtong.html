@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function tinhTong(a,b) {
+            return a+b;
+        }
+
+        function tinh(){
+            let first = +document.getElementById("first").value;
+            let second = +document.getElementById("second").value;
+            let ketqua = tinhTong(first,second);
+            document.getElementById("result").innerHTML = ketqua;
+        }
+    </script>
+</head>
+<body>
+    <h3>Tính tổng của 2 số</h3>
+    <span>Số thứ nhất </span><input type="text" id="first"> +
+    <span>Số thứ hai </span><input type="text" id="second"> = <span id="result"></span>
+    <br>
+    <button onclick="tinh();">Tính</button>
+</body>
+</html>
