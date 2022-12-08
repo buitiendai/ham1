@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyển đổi nhiệt độ</title>
+</head>
+<body>
+    <h2>Chuyển đổi nhiệt độ từ độ F sang độ C</h2>
+    <span>Độ F </span>
+    <input type="text" id="nhietdo" oninput="doinhietdo();"><span> Độ C là </span><span id="ketqua"></span>
+
+    <script>
+        function tinh(f) {
+            let nhietdo = (f-32)/1.8;
+            return nhietdo; 
+        }
+
+        function doinhietdo() {
+            let dof = document.getElementById("nhietdo").value;
+            let ketqua = tinh(dof);
+            document.getElementById("ketqua").innerHTML = ketqua;
+        }
+    </script>
+</body>
+</html>
