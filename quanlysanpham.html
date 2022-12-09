@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý sản phẩm bằng JS</title>
+</head>
+<style>
+div {
+    margin: auto;
+    width: 500px;
+    margin-bottom: 10px;
+}
+#add {
+    width: 400px;
+}
+table {
+    width: 500px;
+    border: 1px solid gray;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+table tr td {
+    height: 30px;
+    padding: 5px;
+}
+.other {
+    width: 70px;
+    text-align: center;
+}
+#buttonEdit {
+    width: 70px;
+    background: orange;
+    color: black;
+    border: 1px solid orange;
+    padding: 3px;
+}
+#buttonEdit:hover {
+    background: gray;
+    color: white;
+    border: 1px solid gray;
+}
+#buttonDelete {
+    width: 70px;
+    background: red;
+    color: white;
+    border: 1px solid red;
+    padding: 3px;
+}
+#buttonDelete:hover {
+    background: gray;
+    color: white;
+    border: 1px solid gray;
+}
+button {
+    background-color: orange;
+    border: 1px solid orange;
+}
+
+</style>
+<body>
+    <div class="container">
+        <div id="produclist">
+            <p>Add product</p>
+            <input type="text" id="add">
+            <button id="buttonEdit" onclick="addProduct()">Add</button>
+        </div>
+        <table id="displayArea" border="1">
+    
+        </table>
+        <div id="edit"></div>
+    </div>
+</body>
+</html>
+<script>
+    let listPoduct = ['Iphone 14 Promax', 'Samsung S22 Ultra', 'Iphone 13 Promax', 'Samsung S20', 'Xiaomi 11 Pro'];
+        function displayAll() {
+            let str = '<tr>\n' +
+                '<th>Product Name</th>\n' +
+                '<td class="other"></td>\n' +
+                '<td class="other">' +listPoduct.length+' products</td>\n' +
+                '</tr>';
+            for (let i=0; i<listPoduct.length; i++) {
+                str += '<tr><td>' + listPoduct[i] + '</td>' +
+                    '<td><button id="buttonEdit" onclick="showFormEdit('+ i +')">Edit</button></td>' +
+                    '<td><button id="buttonDelete" onclick="deleteProduct('+ i +')">Delete</button></td></tr>'
+            }
+            document.getElementById("displayArea").innerHTML = str;
+        }
+        displayAll();
+
+        function addProduct() {
+            let productName = document.getElementById("add").value;
+            document.getElementById("add").value = "";
+            listPoduct.push(productName);
+            displayAll();
+        }
+
+        function deleteProduct(index) {
+            // alert('Delete '+ index);
+            listPoduct.splice(index, 1); // Xóa từ vị trí sản phẩm và xóa 1 sản phẩm
+            displayAll(); // Xóa xong gọi lại hàm hiển thị danh sách sản phẩm sau khi xóa
+        }
+
+        function showFormEdit(index) {
+            let str = '';
+            str = '<input type="text" id="editProduct" value="'+listPoduct[index]+'"><button id="buttonEdit" onclick="saveProduct('+ index +')">Save</button>'
+            document.getElementById("edit").innerHTML = str;
+        }
+
+        function saveProduct(index) {
+            listPoduct[index] = document.getElementById("editProduct").value;
+            document.getElementById("edit").innerHTML = "";
+            displayAll();
+        }
+</script>
