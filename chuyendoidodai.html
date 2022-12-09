@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyển đổi giữa Feet và Meter</title>
+</head>
+<body>
+    <h2>Chuyển đổi đơn vị đo từ Feet sang Meter và ngược lại</h2>
+    <div>
+        <div>Đổi Feet sang Meter:
+            <input type="text" id="feetToM" oninput="feetToMeter()"><span> Feet = </span><span id="meter"></span><span> Meter</span>
+        </div>
+        <div>Đổi Meter sang Feet:
+            <input type="text" id="meterToF" oninput="meterToFeet()"><span> Meter = </span><span id="feet"></span><span> Feet</span>
+        </div>
+    </div>
+
+    <script>
+        function doiDoDai(a, b) {
+            let result = a * b;
+            return result;
+        }
+
+        function feetToMeter(){
+            let feet = document.getElementById("feetToM").value;
+            let meter = doiDoDai(feet, 3.279);
+            document.getElementById("meter").innerHTML = meter;
+        }
+
+        function meterToFeet() {
+            let meter = document.getElementById("meterToF").value;
+            let feet = doiDoDai(meter, 0.305);
+            document.getElementById("feet").innerHTML = feet;
+        }
+    </script>
+</body>
+</html>
