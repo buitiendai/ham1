@@ -29,12 +29,26 @@ table tr td {
     width: 70px;
     text-align: center;
 }
+#buttonAdd {
+    width: 70px;
+    background: green;
+    color: white;
+    border: 1px solid green;
+    padding: 3px;
+    border-radius: 3px;
+}
+#buttonAdd:hover {
+    background: gray;
+    color: white;
+    border: 1px solid gray;
+}
 #buttonEdit {
     width: 70px;
     background: orange;
     color: black;
     border: 1px solid orange;
     padding: 3px;
+    border-radius: 3px;
 }
 #buttonEdit:hover {
     background: gray;
@@ -47,6 +61,7 @@ table tr td {
     color: white;
     border: 1px solid red;
     padding: 3px;
+    border-radius: 3px;
 }
 #buttonDelete:hover {
     background: gray;
@@ -64,7 +79,7 @@ button {
         <div id="produclist">
             <p>Add product</p>
             <input type="text" id="add">
-            <button id="buttonEdit" onclick="addProduct()">Add</button>
+            <button id="buttonAdd" onclick="addProduct()">Add</button>
         </div>
         <table id="displayArea" border="1">
     
